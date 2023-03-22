@@ -1,0 +1,32 @@
+type salesforce.ofers_New_Custom_Metadata_Type__mdt {
+  salesforce.Picklist myDay__c {
+    apiName = "ofers_New_Custom_Metadata_Type__mdt.myDay__c"
+    label = "myDay"
+    defaultValueFormula = "\"Sunday\""
+    valueSet = [
+      {
+        fullName = "Sunday"
+        default = true
+        label = "Sunday"
+      },
+      {
+        fullName = "Monday"
+        default = false
+        label = "Monday"
+      },
+      {
+        fullName = "Tuesday"
+        default = false
+        label = "Tuesday"
+      },
+    ]
+    restricted = true
+    
+    
+    
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    sorted = false
+    
+  }
+}

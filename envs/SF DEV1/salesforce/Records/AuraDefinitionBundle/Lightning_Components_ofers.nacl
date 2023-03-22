@@ -1,0 +1,10 @@
+salesforce.AuraDefinitionBundle Lightning_Components_ofers {
+  apiVersion = 55
+  description = "A Lightning Component Bundle"
+  fullName = "Lightning_Components_ofers"
+  type = "Component"
+  styleContent = file("salesforce/Records/AuraDefinitionBundle/Lightning_Components_ofers/Lightning_Components_ofers.css")
+  markup = file("salesforce/Records/AuraDefinitionBundle/Lightning_Components_ofers/Lightning_Components_ofers.cmp")
+  helperContent = file("salesforce/Records/AuraDefinitionBundle/Lightning_Components_ofers/Lightning_Components_ofersHelper.js")
+  controllerContent = file("salesforce/Records/AuraDefinitionBundle/Lightning_Components_ofers/Lightning_Components_ofersController.js")
+}

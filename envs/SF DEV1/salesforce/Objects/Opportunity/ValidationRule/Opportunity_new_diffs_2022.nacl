@@ -1,0 +1,14 @@
+salesforce.ValidationRule Opportunity_new_diffs_2022 {
+  fullName = "Opportunity.new_diffs_2022"
+  active = true
+  description = "Define a validation rule by specifying an error condition and a corresponding error message. The error condition is written as a Boolean formula expression that returns true or false. When the formula expression returns true, the save will be aborted!"
+  errorConditionFormula = '''
+Amount < 2000
+&&
+$User.IsActive
+'''
+  errorMessage = "Amount is too small (below 2000) and also user is active"
+  _parent = [
+    salesforce.Opportunity,
+  ]
+}

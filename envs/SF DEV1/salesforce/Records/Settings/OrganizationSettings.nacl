@@ -1,0 +1,45 @@
+salesforce.Organization {
+  Id = "00D4L000000j9pMUAQ"
+  Name = "Salto"
+  Address = {
+    country = "IL"
+  }
+  PrimaryContact = "Ofer Rozenman"
+  DefaultLocaleSidKey = "en_IE_EURO"
+  TimeZoneSidKey = "Europe/Dublin"
+  LanguageLocaleKey = "en_US"
+  ReceivesInfoEmails = false
+  ReceivesAdminInfoEmails = true
+  PreferencesRequireOpportunityProducts = false
+  PreferencesTransactionSecurityPolicy = false
+  PreferencesTerminateOldestSession = false
+  PreferencesConsentManagementEnabled = true
+  PreferencesAutoSelectIndividualOnMerge = false
+  PreferencesLightningLoginEnabled = true
+  PreferencesOnlyLLPermUserAllowed = false
+  FiscalYearStartMonth = 1
+  UsesStartDateAsFiscalYearName = false
+  DefaultAccountAccess = "Edit"
+  DefaultContactAccess = "ControlledByParent"
+  DefaultOpportunityAccess = "Edit"
+  DefaultLeadAccess = "ReadEditTransfer"
+  DefaultCaseAccess = "ReadEditTransfer"
+  DefaultCalendarAccess = "HideDetailsInsert"
+  DefaultPricebookAccess = "ReadSelect"
+  DefaultCampaignAccess = "All"
+  SystemModstamp = "2023-03-17T02:28:30.000+0000"
+  UiSkin = "Theme3"
+  SignupCountryIsoCode = "IL"
+  NumKnowledgeService = 2
+  OrganizationType = "Developer Edition"
+  InstanceName = "UM7"
+  IsSandbox = false
+  WebToCaseDefaultOrigin = "Web"
+  MonthlyPageViewsUsed = 0
+  MonthlyPageViewsEntitlement = 0
+  IsReadOnly = false
+  CreatedDate = "2021-06-24T09:48:38.000+0000"
+  CreatedById = "0054L000001hBh6QAE"
+  LastModifiedDate = "2021-06-24T10:42:23.000+0000"
+  LastModifiedById = "0054L000001hBh6QAE"
+}

@@ -1,0 +1,9 @@
+salesforce.ValidationRule Contact_validation_rule_ofer2 {
+  fullName = "Contact.validation_rule_ofer2"
+  active = true
+  errorConditionFormula = "$User.IsActive"
+  errorMessage = "'fault'"
+  _parent = [
+    salesforce.Contact,
+  ]
+}

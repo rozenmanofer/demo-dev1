@@ -1,0 +1,11 @@
+salesforce.EventSettings {
+  fullName = "Event"
+  bypassMeteringBlock = "false"
+  enableDeleteMonitoringData = false
+  enableDynamicStreamingChannel = false
+  enableLoginForensics = false
+  enableStreamingApi = true
+  enableTerminateOldestSession = false
+  enableTransactionSecurityPolicies = false
+  enableEventLogGeneration = "false"
+}

@@ -1,0 +1,44 @@
+type salesforce.Ofers_Object__c {
+  salesforce.Picklist pickLegoCharacter__c {
+    apiName = "Ofers_Object__c.pickLegoCharacter__c"
+    label = "pickLegoCharacter"
+    valueSet = [
+      {
+        fullName = "Spidey"
+        default = false
+        label = "Spidey"
+      },
+      {
+        fullName = "Batman"
+        default = false
+        label = "Batman"
+      },
+      {
+        fullName = "Superman"
+        default = false
+        label = "Superman"
+      },
+      {
+        fullName = "Ken"
+        default = false
+        label = "Ken"
+      },
+    ]
+    restricted = true
+    createable = true
+    updateable = true
+    queryable = true
+    externalId = false
+    trackTrending = false
+    sorted = false
+    _restriction = {
+      enforce_value = false
+      values = [
+        "Spidey",
+        "Batman",
+        "Superman",
+        "Ken",
+      ]
+    }
+  }
+}

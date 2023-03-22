@@ -1,0 +1,6 @@
+salesforce.SharingRules ofer_pro__c {
+  fullName = "ofer_pro__c"
+  _parent = [
+    salesforce.ofer_pro__c,
+  ]
+}

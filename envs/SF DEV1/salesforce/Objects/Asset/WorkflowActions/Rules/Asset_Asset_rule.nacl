@@ -1,0 +1,15 @@
+salesforce.WorkflowRule Asset_Asset_rule@vu {
+  fullName = "Asset.Asset_rule"
+  active = false
+  criteriaItems = [
+    {
+      field = salesforce.Asset.field.AssetLevel
+      operation = "greaterThan"
+      value = "1"
+    },
+  ]
+  triggerType = "onCreateOrTriggeringUpdate"
+  _parent = [
+    salesforce.Asset,
+  ]
+}

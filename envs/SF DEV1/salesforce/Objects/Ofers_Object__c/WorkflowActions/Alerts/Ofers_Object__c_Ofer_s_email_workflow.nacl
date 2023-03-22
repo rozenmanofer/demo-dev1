@@ -1,0 +1,16 @@
+salesforce.WorkflowAlert Ofers_Object__c_Ofer_s_email_workflow@uuuvuuu {
+  fullName = "Ofers_Object__c.Ofer_s_email_workflow"
+  description = "New Email Alert"
+  protected = false
+  recipients = [
+    {
+      recipient = "ofer.rozenman+dev1@salto.io"
+      type = "user"
+    },
+  ]
+  senderType = "CurrentUser"
+  template = "unfiled$public/SalesNewCustomerEmail"
+  _parent = [
+    salesforce.Ofers_Object__c,
+  ]
+}

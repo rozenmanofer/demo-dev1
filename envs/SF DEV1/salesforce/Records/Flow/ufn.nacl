@@ -1,0 +1,2064 @@
+salesforce.Flow ufn {
+  fullName = "ufn"
+  apiVersion = 55
+  assignments = [
+    {
+      name = "Initial_Assignment"
+      label = "Initial Assignment"
+      locationX = 410
+      locationY = 255
+      assignmentItems = [
+        {
+          assignToReference = "ServiceAppointment.ParentRecordId"
+          operator = "Assign"
+          value = {
+            stringValue = ""
+          }
+        },
+        {
+          assignToReference = "ServiceAppointment.AdditionalInformation"
+          operator = "Assign"
+          value = {
+            stringValue = "asdasd"
+          }
+        },
+        {
+          assignToReference = "ServiceAppointment.ContactId"
+          operator = "Assign"
+          value = {
+            stringValue = "adsadasdsad"
+          }
+        },
+        {
+          assignToReference = "ServiceAppointment.Comments"
+          operator = "Assign"
+          value = {
+            stringValue = "asdsadas"
+          }
+        },
+        {
+          assignToReference = "ServiceAppointment.AppointmentType"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.Street"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.City"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.State"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.PostalCode"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.Country"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.ServiceTerritoryId"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.SchedStartTime"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.SchedEndTime"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.ArrivalWindowStartTime"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.ArrivalWindowEndTime"
+          operator = "Assign"
+        },
+        {
+          assignToReference = "ServiceAppointment.IsAnonymousBooking"
+          operator = "Assign"
+        },
+      ]
+      connector = {
+        targetReference = "isOutboundCommunity_Flow_Decision"
+      }
+    },
+    {
+      name = "Set_Anonymous_Booking_Flag"
+      label = "Set Anonymous Booking Flag"
+      locationX = 1288
+      locationY = 699
+      assignmentItems = [
+        {
+          assignToReference = "ServiceAppointment.IsAnonymousBooking"
+          operator = "Assign"
+          value = {
+            booleanValue = true
+          }
+        },
+      ]
+      connector = {
+        targetReference = "SetTimeSlotStage"
+      }
+    },
+    {
+      name = "Set_Composite_Stage"
+      label = "Set Composite Stage"
+      locationX = 1437
+      locationY = 726
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "CompositeStage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Candidate_Composite_Screen"
+      }
+    },
+    {
+      name = "Set_Triage_Option"
+      label = "Set Triage Option"
+      locationX = 836
+      locationY = 374
+      assignmentItems = [
+        {
+          assignToReference = "SelectedTriageOption"
+          operator = "Assign"
+          value = {
+            elementReference = "FIND_RESOURCE"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "TopicScreen"
+      }
+    },
+    {
+      name = "SetAppointmentStage"
+      label = "Set Appointment Stage"
+      locationX = 1032
+      locationY = 228
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "AppointmentTypeStage"
+          }
+        },
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Add"
+          value = {
+            elementReference = "AppointmentTypeStage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "AppointmentTypeScreen"
+      }
+    },
+    {
+      name = "SetCandidateStage"
+      label = "Set Candidate Stage"
+      locationX = 1595
+      locationY = 1145
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "CandidateStage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "CandidateScreen"
+      }
+    },
+    {
+      name = "SetCandidateStageMobile"
+      label = "Set Candidate Stage Mobile"
+      locationX = 1925
+      locationY = 904
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "CandidateStage"
+          }
+        },
+        {
+          assignToReference = "disableMultiResource"
+          operator = "Assign"
+          value = {
+            booleanValue = true
+          }
+        },
+      ]
+      connector = {
+        targetReference = "CandidateScreen"
+      }
+    },
+    {
+      name = "SetConfirmationStage"
+      label = "Set Confirmation Stage"
+      locationX = 1038
+      locationY = 1027
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "ConfirmationStage"
+          }
+        },
+        {
+          assignToReference = "ServiceAppointmentId"
+          operator = "Assign"
+          value = {
+            elementReference = "ServiceAppointment.Id"
+          }
+        },
+      ]
+    },
+    {
+      name = "SetLocationStage"
+      label = "Set Location Stage"
+      locationX = 1213
+      locationY = 202
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "LocationStage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "LocationScreen"
+      }
+    },
+    {
+      name = "SetReviewStage"
+      label = "Set Review Stage"
+      locationX = 733
+      locationY = 914
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "ReviewStage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "ReviewScreen"
+      }
+    },
+    {
+      name = "SetTimeSlotStage"
+      label = "Set Time Slot Stage"
+      locationX = 1164
+      locationY = 816
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "TimeSlotStage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "TimeSlotScreen"
+      }
+    },
+    {
+      name = "SetTopicStage"
+      label = "Set Topic Stage"
+      locationX = 836
+      locationY = 220
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Add"
+          value = {
+            elementReference = "TopicStage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "TopicScreen"
+      }
+    },
+  ]
+  constants = [
+    {
+      name = "FIND_RESOURCE"
+      dataType = "String"
+      value = {
+        stringValue = "findResource"
+      }
+    },
+  ]
+  decisions = [
+    {
+      name = "Change_Primary"
+      label = "Change Primary"
+      locationX = 793
+      locationY = 744
+      defaultConnector = {
+        targetReference = "SetReviewStage"
+      }
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "Change_Primary_Selected"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "changePrimary"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          label = "Change Primary Selected"
+        },
+      ]
+    },
+    {
+      name = "Change_Primary_Screen_Decision"
+      label = "Change Primary Screen Decision"
+      locationX = 718
+      locationY = 606
+      defaultConnector = {
+        targetReference = "AttendeesScreen"
+      }
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "Filter_By_Resource_ID"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "FilterByResourceIds"
+              operator = "IsNull"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Set_Triage_Option"
+          }
+          label = "Filter By Resource IDS"
+        },
+      ]
+    },
+    {
+      name = "Form_Factor"
+      label = "Form Factor"
+      locationX = 1805
+      locationY = 659
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "Large"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "$Client.FormFactor"
+              operator = "EqualTo"
+              rightValue = {
+                stringValue = "Large"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Set_Composite_Stage"
+          }
+          label = "Large"
+        },
+        {
+          name = "Others"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "$Client.FormFactor"
+              operator = "NotEqualTo"
+              rightValue = {
+                stringValue = "Large"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "SetCandidateStageMobile"
+          }
+          label = "Others"
+        },
+      ]
+    },
+    {
+      name = "isOutboundCommunity_Flow_Decision"
+      label = "isOutboundCommunity Flow Decision"
+      locationX = 253
+      locationY = 353
+      defaultConnector = {
+        targetReference = "Service_Resource_Selection_Screen_Decision"
+      }
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "isOutboundCommunity_Flow"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "isOutboundCommunity"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          label = "isOutboundCommunity Flow"
+        },
+      ]
+    },
+    {
+      name = "ResourceDecision"
+      label = "Resource Decision"
+      locationX = 1473
+      locationY = 344
+      defaultConnector = {
+        targetReference = "SetTimeSlotStage"
+      }
+      defaultConnectorLabel = "Candidate Selected"
+      rules = [
+        {
+          name = "FindResourceDisableMrAndCsFalse"
+          conditionLogic = "1 AND (2 OR 3) AND (4 OR 5)"
+          conditions = [
+            {
+              leftValueReference = "SelectedTriageOption"
+              operator = "EqualTo"
+              rightValue = {
+                elementReference = "FIND_RESOURCE"
+              }
+            },
+            {
+              leftValueReference = "disableMultiResource"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+            {
+              leftValueReference = "disableMultiResource"
+              operator = "EqualTo"
+            },
+            {
+              leftValueReference = "allowResourceBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+            {
+              leftValueReference = "allowAnonymousBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+          ]
+          connector = {
+            targetReference = "SetCandidateStage"
+          }
+          label = "Find Resource Disable MR and CS False"
+        },
+        {
+          name = "FindResourceDisableMrAndCsTrue"
+          conditionLogic = "1 AND 2 AND (3 OR 4)"
+          conditions = [
+            {
+              leftValueReference = "SelectedTriageOption"
+              operator = "EqualTo"
+              rightValue = {
+                elementReference = "FIND_RESOURCE"
+              }
+            },
+            {
+              leftValueReference = "disableMultiResource"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+            {
+              leftValueReference = "allowResourceBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+            {
+              leftValueReference = "allowAnonymousBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Form_Factor"
+          }
+          label = "Find Resource Disable MR and CS True"
+        },
+        {
+          name = "Find_Service_Resource_for_Anonymous_Booking"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "SelectedTriageOption"
+              operator = "EqualTo"
+              rightValue = {
+                elementReference = "FIND_RESOURCE"
+              }
+            },
+            {
+              leftValueReference = "allowAnonymousBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Set_Anonymous_Booking_Flag"
+          }
+          label = "Find Service Resource for Anonymous Booking"
+        },
+      ]
+    },
+    {
+      name = "Service_Resource_Selection_Screen_Decision"
+      label = "Service Resource Selection Screen Decision"
+      locationX = 52
+      locationY = 893
+      defaultConnector = {
+        targetReference = "AttendeesScreen"
+      }
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "Anonymous_Booking"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "allowAnonymousBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+            {
+              leftValueReference = "allowResourceBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+            {
+              leftValueReference = "isOutboundCommunity"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Get_Account_Record"
+          }
+          label = "Anonymous Booking"
+        },
+        {
+          name = "Filter_By_Resource_IDs"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "FilterByResourceIds"
+              operator = "IsNull"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+            {
+              leftValueReference = "isOutboundCommunity"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Get_Account_Record"
+          }
+          label = "Filter By Resource IDs"
+        },
+        {
+          name = "Anonymous_Booking_Outbound"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "allowAnonymousBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+            {
+              leftValueReference = "allowResourceBooking"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+            {
+              leftValueReference = "isOutboundCommunity"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Set_Triage_Option"
+          }
+          label = "Anonymous Booking Outbound"
+        },
+        {
+          name = "Filter_By_Resource_IDs_Outbound"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "FilterByResourceIds"
+              operator = "IsNull"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+            {
+              leftValueReference = "isOutboundCommunity"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Set_Triage_Option"
+          }
+          label = "Filter By Resource IDs Outbound"
+        },
+      ]
+    },
+  ]
+  environments = "Default"
+  formulas = [
+    {
+      name = "contactId"
+      dataType = "String"
+      expression = "{!$User.ContactId}"
+    },
+  ]
+  interviewLabel = "ufn {!$Flow.CurrentDateTime}"
+  label = "ufn"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "FREE_FORM_CANVAS"
+      }
+    },
+  ]
+  processType = "Appointments"
+  recordLookups = [
+    {
+      name = "Get_Account_Record"
+      label = "Get Account Record"
+      locationX = 509
+      locationY = 476
+      assignNullValuesIfNoRecordsFound = false
+      connector = {
+        targetReference = "Set_Triage_Option"
+      }
+      filterLogic = "and"
+      filters = [
+        {
+          field = salesforce.Contact.field.Id
+          operator = "EqualTo"
+          value = {
+            elementReference = "contactId"
+          }
+        },
+      ]
+      object = salesforce.Contact
+      outputAssignments = [
+        {
+          assignToReference = "ServiceAppointment.ParentRecordId"
+          field = salesforce.Contact.field.AccountId
+        },
+      ]
+    },
+  ]
+  screens = [
+    {
+      name = "AppointmentTypeScreen"
+      label = "Appointment Type Screen"
+      locationX = 1108
+      locationY = 367
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      connector = {
+        targetReference = "SetLocationStage"
+      }
+      fields = {
+        name = "flowApptType"
+        extensionName = "runtime_appointmentbooking:flowApptType"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "selectedApptType"
+            value = {
+              elementReference = "ServiceAppointment.AppointmentType"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "ServiceAppointment.AppointmentType"
+            name = "selectedApptType"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+    {
+      name = "AttendeesScreen"
+      label = "Attendees Screen"
+      locationX = 609
+      locationY = 275
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      connector = {
+        targetReference = "SetTopicStage"
+      }
+      fields = {
+        name = "flowTriage"
+        extensionName = "runtime_appointmentbooking:flowTriage"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "parentRecordId"
+            value = {
+              elementReference = "ServiceAppointment.ParentRecordId"
+            }
+          },
+          {
+            name = "option"
+            value = {
+              elementReference = "SelectedTriageOption"
+            }
+          },
+          {
+            name = "serviceResourceId"
+            value = {
+              elementReference = "ServiceResourceId"
+            }
+          },
+          {
+            name = "validationErrors"
+            value = {
+              elementReference = "ValidationErrors"
+            }
+          },
+          {
+            name = "isInbound"
+            value = {
+              elementReference = "IsInbound"
+            }
+          },
+          {
+            name = "serviceResourceName"
+            value = {
+              elementReference = "ServiceResourceName"
+            }
+          },
+          {
+            name = "isOutboundCommunity"
+            value = {
+              elementReference = "isOutboundCommunity"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "ServiceAppointment.ParentRecordId"
+            name = "parentRecordId"
+          },
+          {
+            assignToReference = "SelectedTriageOption"
+            name = "option"
+          },
+          {
+            assignToReference = "ServiceResourceId"
+            name = "serviceResourceId"
+          },
+          {
+            assignToReference = "ValidationErrors"
+            name = "validationErrors"
+          },
+          {
+            assignToReference = "ServiceAppointment.ContactId"
+            name = "contactId"
+          },
+          {
+            assignToReference = "ServiceResourceName"
+            name = "serviceResourceName"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+    {
+      name = "Candidate_Composite_Screen"
+      label = "Resource Time Slot Screen"
+      locationX = 927
+      locationY = 663
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      connector = {
+        targetReference = "Change_Primary"
+      }
+      fields = {
+        name = "flowResourceTimeSlot"
+        extensionName = "runtime_appointmentbooking:resourceSlot"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "parentRecordId"
+            value = {
+              elementReference = "ServiceAppointment.ParentRecordId"
+            }
+          },
+          {
+            name = "isInbound"
+            value = {
+              elementReference = "IsInbound"
+            }
+          },
+          {
+            name = "serviceResourceId"
+            value = {
+              elementReference = "ServiceResourceId"
+            }
+          },
+          {
+            name = "serviceTerritoryId"
+            value = {
+              elementReference = "ServiceAppointment.ServiceTerritoryId"
+            }
+          },
+          {
+            name = "currStartDate"
+            value = {
+              elementReference = "StartDate"
+            }
+          },
+          {
+            name = "workTypeGroupId"
+            value = {
+              elementReference = "WorkTypeGroupId"
+            }
+          },
+          {
+            name = "validationErrors"
+            value = {
+              elementReference = "ValidationErrors"
+            }
+          },
+          {
+            name = "selectedEndTime"
+            value = {
+              elementReference = "ServiceAppointment.SchedEndTime"
+            }
+          },
+          {
+            name = "selectedStartTime"
+            value = {
+              elementReference = "ServiceAppointment.SchedStartTime"
+            }
+          },
+          {
+            name = "anonymousBooking"
+            value = {
+              elementReference = "allowAnonymousBooking"
+            }
+          },
+          {
+            name = "resourceBooking"
+            value = {
+              elementReference = "allowResourceBooking"
+            }
+          },
+          {
+            name = "isAnonymousBooking"
+            value = {
+              elementReference = "ServiceAppointment.IsAnonymousBooking"
+            }
+          },
+          {
+            name = "schedulingPolicyName"
+            value = {
+              elementReference = "SchedulingPolicyName"
+            }
+          },
+          {
+            name = "preselectedTimezone"
+            value = {
+              elementReference = "DefaultTimeZone"
+            }
+          },
+          {
+            name = "filterByResources"
+            value = {
+              elementReference = "FilterByResourceIds"
+            }
+          },
+          {
+            name = "showTimeZonePicklist"
+            value = {
+              elementReference = "showTimeZonePicklist"
+            }
+          },
+          {
+            name = "selectedTimezone"
+            value = {
+              elementReference = "selectedTimezone"
+            }
+          },
+          {
+            name = "correlationId"
+            value = {
+              elementReference = "correlationId"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "ServiceAppointment.SchedEndTime"
+            name = "selectedEndTime"
+          },
+          {
+            assignToReference = "ServiceAppointment.SchedStartTime"
+            name = "selectedStartTime"
+          },
+          {
+            assignToReference = "StartDate"
+            name = "currStartDate"
+          },
+          {
+            assignToReference = "ServiceResourceId"
+            name = "serviceResourceId"
+          },
+          {
+            assignToReference = "selectedTimezone"
+            name = "selectedTimezone"
+          },
+          {
+            assignToReference = "WorkTypeGroupId"
+            name = "workTypeGroupId"
+          },
+          {
+            assignToReference = "ValidationErrors"
+            name = "validationErrors"
+          },
+          {
+            assignToReference = "ServiceAppointment.IsAnonymousBooking"
+            name = "isAnonymousBooking"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+    {
+      name = "CandidateScreen"
+      label = "Candidate Screen"
+      locationX = 1379
+      locationY = 1009
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      connector = {
+        targetReference = "SetTimeSlotStage"
+      }
+      fields = {
+        name = "resource_list"
+        extensionName = "runtime_appointmentbooking:resourceList"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "parentRecordId"
+            value = {
+              elementReference = "ServiceAppointment.ParentRecordId"
+            }
+          },
+          {
+            name = "serviceTerritoryId"
+            value = {
+              elementReference = "ServiceAppointment.ServiceTerritoryId"
+            }
+          },
+          {
+            name = "workTypeGroupId"
+            value = {
+              elementReference = "WorkTypeGroupId"
+            }
+          },
+          {
+            name = "serviceResourceId"
+            value = {
+              elementReference = "ServiceResourceId"
+            }
+          },
+          {
+            name = "anonymousBooking"
+            value = {
+              elementReference = "allowAnonymousBooking"
+            }
+          },
+          {
+            name = "resourceBooking"
+            value = {
+              elementReference = "allowResourceBooking"
+            }
+          },
+          {
+            name = "isAnonymousBooking"
+            value = {
+              elementReference = "ServiceAppointment.IsAnonymousBooking"
+            }
+          },
+          {
+            name = "validationErrors"
+            value = {
+              elementReference = "ValidationErrors"
+            }
+          },
+          {
+            name = "schedulingPolicyName"
+            value = {
+              elementReference = "SchedulingPolicyName"
+            }
+          },
+          {
+            name = "filterByResources"
+            value = {
+              elementReference = "FilterByResourceIds"
+            }
+          },
+          {
+            name = "defaultTimezone"
+            value = {
+              elementReference = "DefaultTimeZone"
+            }
+          },
+          {
+            name = "correlationId"
+            value = {
+              elementReference = "correlationId"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "ServiceResourceId"
+            name = "serviceResourceId"
+          },
+          {
+            assignToReference = "ServiceAppointment.ServiceTerritoryId"
+            name = "serviceTerritoryId"
+          },
+          {
+            assignToReference = "WorkTypeGroupId"
+            name = "workTypeGroupId"
+          },
+          {
+            assignToReference = "ServiceAppointment.IsAnonymousBooking"
+            name = "isAnonymousBooking"
+          },
+          {
+            assignToReference = "ValidationErrors"
+            name = "validationErrors"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+    {
+      name = "LocationScreen"
+      label = "Location Screen"
+      locationX = 1391
+      locationY = 202
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      connector = {
+        targetReference = "ResourceDecision"
+      }
+      fields = {
+        name = "flowLocation"
+        extensionName = "runtime_appointmentbooking:flowLocation"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "workTypeGroupId"
+            value = {
+              elementReference = "WorkTypeGroupId"
+            }
+          },
+          {
+            name = "serviceTerritoryId"
+            value = {
+              elementReference = "ServiceAppointment.ServiceTerritoryId"
+            }
+          },
+          {
+            name = "serviceResourceId"
+            value = {
+              elementReference = "ServiceResourceId"
+            }
+          },
+          {
+            name = "enteredLocation"
+            value = {
+              elementReference = "SelectedLocation"
+            }
+          },
+          {
+            name = "distance"
+            value = {
+              elementReference = "LocationDistance"
+            }
+          },
+          {
+            name = "lat"
+            value = {
+              elementReference = "LocationLatitude"
+            }
+          },
+          {
+            name = "long"
+            value = {
+              elementReference = "LocationLongitude"
+            }
+          },
+          {
+            name = "validationErrors"
+            value = {
+              elementReference = "ValidationErrors"
+            }
+          },
+          {
+            name = "distanceUnit"
+            value = {
+              elementReference = "distanceUnit"
+            }
+          },
+          {
+            name = "filterByResources"
+            value = {
+              elementReference = "FilterByResourceIds"
+            }
+          },
+          {
+            name = "hideStOh"
+            value = {
+              elementReference = "hideStOh"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "ServiceAppointment.ServiceTerritoryId"
+            name = "serviceTerritoryId"
+          },
+          {
+            assignToReference = "ServiceAppointment.City"
+            name = "city"
+          },
+          {
+            assignToReference = "ServiceAppointment.Country"
+            name = "country"
+          },
+          {
+            assignToReference = "ServiceAppointment.PostalCode"
+            name = "postalCode"
+          },
+          {
+            assignToReference = "ServiceAppointment.State"
+            name = "state"
+          },
+          {
+            assignToReference = "ServiceAppointment.Street"
+            name = "street"
+          },
+          {
+            assignToReference = "SelectedLocation"
+            name = "enteredLocation"
+          },
+          {
+            assignToReference = "LocationDistance"
+            name = "distance"
+          },
+          {
+            assignToReference = "LocationLatitude"
+            name = "lat"
+          },
+          {
+            assignToReference = "LocationLongitude"
+            name = "long"
+          },
+          {
+            assignToReference = "ValidationErrors"
+            name = "validationErrors"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+    {
+      name = "ReviewScreen"
+      label = "Review Screen"
+      locationX = 648
+      locationY = 1122
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      fields = {
+        name = "newFlowReview"
+        extensionName = "runtime_appointmentbooking:flowReviewIO"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "appointmentType"
+            value = {
+              elementReference = "ServiceAppointment.AppointmentType"
+            }
+          },
+          {
+            name = "contactId"
+            value = {
+              elementReference = "ServiceAppointment.ContactId"
+            }
+          },
+          {
+            name = "parentRecordId"
+            value = {
+              elementReference = "ServiceAppointment.ParentRecordId"
+            }
+          },
+          {
+            name = "additionalInformation"
+            value = {
+              elementReference = "ServiceAppointment.AdditionalInformation"
+            }
+          },
+          {
+            name = "city"
+            value = {
+              elementReference = "ServiceAppointment.City"
+            }
+          },
+          {
+            name = "comments"
+            value = {
+              elementReference = "ServiceAppointment.Comments"
+            }
+          },
+          {
+            name = "country"
+            value = {
+              elementReference = "ServiceAppointment.Country"
+            }
+          },
+          {
+            name = "endDateTime"
+            value = {
+              elementReference = "ServiceAppointment.SchedEndTime"
+            }
+          },
+          {
+            name = "postalCode"
+            value = {
+              elementReference = "ServiceAppointment.PostalCode"
+            }
+          },
+          {
+            name = "startDateTime"
+            value = {
+              elementReference = "ServiceAppointment.SchedStartTime"
+            }
+          },
+          {
+            name = "state"
+            value = {
+              elementReference = "ServiceAppointment.State"
+            }
+          },
+          {
+            name = "street"
+            value = {
+              elementReference = "ServiceAppointment.Street"
+            }
+          },
+          {
+            name = "serviceResourceId"
+            value = {
+              elementReference = "ServiceResourceId"
+            }
+          },
+          {
+            name = "serviceTerritoryId"
+            value = {
+              elementReference = "ServiceAppointment.ServiceTerritoryId"
+            }
+          },
+          {
+            name = "workTypeGroupId"
+            value = {
+              elementReference = "WorkTypeGroupId"
+            }
+          },
+          {
+            name = "serviceAppointmentFields"
+            value = {
+              elementReference = "ServiceAppointmentFields"
+            }
+          },
+          {
+            name = "isAnonymousBooking"
+            value = {
+              elementReference = "ServiceAppointment.IsAnonymousBooking"
+            }
+          },
+          {
+            name = "optionalAttendees"
+            value = {
+              elementReference = "OptionalAttendees"
+            }
+          },
+          {
+            name = "saveErrors"
+            value = {
+              elementReference = "$Flow.FaultMessage"
+            }
+          },
+          {
+            name = "serviceResources"
+            value = {
+              elementReference = "serviceResources"
+            }
+          },
+          {
+            name = "isShowResourceSection"
+            value = {
+              elementReference = "showServiceResource"
+            }
+          },
+          {
+            name = "isSlotChanged"
+            value = {
+              booleanValue = false
+            }
+          },
+          {
+            name = "selectedTimezone"
+            value = {
+              elementReference = "selectedTimezone"
+            }
+          },
+          {
+            name = "validationErrors"
+            value = {
+              elementReference = "ValidationErrors"
+            }
+          },
+          {
+            name = "schedulingPolicyName"
+            value = {
+              elementReference = "SchedulingPolicyName"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "ServiceAppointmentFields"
+            name = "serviceAppointmentFields"
+          },
+          {
+            assignToReference = "OptionalAttendees"
+            name = "optionalAttendees"
+          },
+          {
+            assignToReference = "serviceResources"
+            name = "serviceResources"
+          },
+          {
+            assignToReference = "ValidationErrors"
+            name = "validationErrors"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+    {
+      name = "TimeSlotScreen"
+      label = "Time Slot Screen"
+      locationX = 926
+      locationY = 816
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      connector = {
+        targetReference = "Change_Primary"
+      }
+      fields = {
+        name = "appointment_time"
+        extensionName = "runtime_appointmentbooking:flowTimeslot"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "parentRecordId"
+            value = {
+              elementReference = "ServiceAppointment.ParentRecordId"
+            }
+          },
+          {
+            name = "isInbound"
+            value = {
+              elementReference = "IsInbound"
+            }
+          },
+          {
+            name = "isHideSkip"
+            value = {
+              booleanValue = true
+            }
+          },
+          {
+            name = "serviceResourceId"
+            value = {
+              elementReference = "ServiceResourceId"
+            }
+          },
+          {
+            name = "serviceTerritoryId"
+            value = {
+              elementReference = "ServiceAppointment.ServiceTerritoryId"
+            }
+          },
+          {
+            name = "currStartDate"
+            value = {
+              elementReference = "StartDate"
+            }
+          },
+          {
+            name = "workTypeGroupId"
+            value = {
+              elementReference = "WorkTypeGroupId"
+            }
+          },
+          {
+            name = "validationErrors"
+            value = {
+              elementReference = "ValidationErrors"
+            }
+          },
+          {
+            name = "selectedEndTime"
+            value = {
+              elementReference = "ServiceAppointment.SchedEndTime"
+            }
+          },
+          {
+            name = "serviceResources"
+            value = {
+              elementReference = "serviceResources"
+            }
+          },
+          {
+            name = "selectedStartTime"
+            value = {
+              elementReference = "ServiceAppointment.SchedStartTime"
+            }
+          },
+          {
+            name = "disableMultiResourceAndConcurrency"
+            value = {
+              elementReference = "disableMultiResource"
+            }
+          },
+          {
+            name = "showTimeZonePicklist"
+            value = {
+              elementReference = "showTimeZonePicklist"
+            }
+          },
+          {
+            name = "isAnonymousBooking"
+            value = {
+              elementReference = "ServiceAppointment.IsAnonymousBooking"
+            }
+          },
+          {
+            name = "schedulingPolicyName"
+            value = {
+              elementReference = "SchedulingPolicyName"
+            }
+          },
+          {
+            name = "preselectedTimezone"
+            value = {
+              elementReference = "DefaultTimeZone"
+            }
+          },
+          {
+            name = "filterByResources"
+            value = {
+              elementReference = "FilterByResourceIds"
+            }
+          },
+          {
+            name = "selectedTimezone"
+            value = {
+              elementReference = "selectedTimezone"
+            }
+          },
+          {
+            name = "correlationId"
+            value = {
+              elementReference = "correlationId"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "ServiceAppointment.SchedEndTime"
+            name = "selectedEndTime"
+          },
+          {
+            assignToReference = "ServiceAppointment.SchedStartTime"
+            name = "selectedStartTime"
+          },
+          {
+            assignToReference = "ServiceResourceId"
+            name = "serviceResourceId"
+          },
+          {
+            assignToReference = "ServiceAppointment.ServiceTerritoryId"
+            name = "serviceTerritoryId"
+          },
+          {
+            assignToReference = "StartDate"
+            name = "currStartDate"
+          },
+          {
+            assignToReference = "WorkTypeGroupId"
+            name = "workTypeGroupId"
+          },
+          {
+            assignToReference = "ValidationErrors"
+            name = "validationErrors"
+          },
+          {
+            assignToReference = "serviceResources"
+            name = "serviceResources"
+          },
+          {
+            assignToReference = "selectedTimezone"
+            name = "selectedTimezone"
+          },
+          {
+            assignToReference = "changePrimary"
+            name = "changePrimary"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+    {
+      name = "TopicScreen"
+      label = "Topic Screen"
+      locationX = 799
+      locationY = 50
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      connector = {
+        targetReference = "SetAppointmentStage"
+      }
+      fields = {
+        name = "flowWorkType"
+        extensionName = "runtime_appointmentbooking:flowWorkType"
+        fieldType = "ComponentInstance"
+        inputParameters = [
+          {
+            name = "serviceResourceId"
+            value = {
+              elementReference = "ServiceResourceId"
+            }
+          },
+          {
+            name = "workTypeGroupId"
+            value = {
+              elementReference = "WorkTypeGroupId"
+            }
+          },
+          {
+            name = "additionalInformation"
+            value = {
+              elementReference = "ServiceAppointment.AdditionalInformation"
+            }
+          },
+          {
+            name = "comments"
+            value = {
+              elementReference = "ServiceAppointment.Comments"
+            }
+          },
+          {
+            name = "validationErrors"
+            value = {
+              elementReference = "ValidationErrors"
+            }
+          },
+          {
+            name = "filterByResources"
+            value = {
+              elementReference = "FilterByResourceIds"
+            }
+          },
+          {
+            name = "filterByWorkTypeGroups"
+            value = {
+              elementReference = "FilterByWorkTypeGroupIds"
+            }
+          },
+          {
+            name = "schedulingPolicyName"
+            value = {
+              elementReference = "SchedulingPolicyName"
+            }
+          },
+        ]
+        inputsOnNextNavToAssocScrn = "ResetValues"
+        isRequired = true
+        outputParameters = [
+          {
+            assignToReference = "WorkTypeGroupId"
+            name = "workTypeGroupId"
+          },
+          {
+            assignToReference = "ServiceAppointment.AdditionalInformation"
+            name = "additionalInformation"
+          },
+          {
+            assignToReference = "ServiceAppointment.Comments"
+            name = "comments"
+          },
+          {
+            assignToReference = "ValidationErrors"
+            name = "validationErrors"
+          },
+        ]
+      }
+      showFooter = true
+      showHeader = false
+    },
+  ]
+  sourceTemplate = "runtime_appointmentbooking__In_New"
+  stages = [
+    {
+      name = "AppointmentTypeStage"
+      isActive = true
+      label = "Select Appointment Type"
+      stageOrder = 20
+    },
+    {
+      name = "AttendeesStage"
+      isActive = true
+      label = "Select Attendees"
+      stageOrder = 0
+    },
+    {
+      name = "CandidateStage"
+      isActive = true
+      label = "Select Candidate"
+      stageOrder = 40
+    },
+    {
+      name = "CompositeStage"
+      isActive = false
+      label = "CompositeStage"
+      stageOrder = 41
+    },
+    {
+      name = "ConfirmationStage"
+      isActive = true
+      label = "Confirmation"
+      stageOrder = 70
+    },
+    {
+      name = "LocationStage"
+      isActive = true
+      label = "Select Location"
+      stageOrder = 30
+    },
+    {
+      name = "ReviewStage"
+      isActive = true
+      label = "Review"
+      stageOrder = 60
+    },
+    {
+      name = "TimeSlotStage"
+      isActive = true
+      label = "Select Time Slot"
+      stageOrder = 50
+    },
+    {
+      name = "TopicStage"
+      isActive = true
+      label = "Select Topic"
+      stageOrder = 10
+    },
+  ]
+  start = {
+    locationX = 381
+    locationY = 130
+    connector = {
+      targetReference = "Initial_Assignment"
+    }
+  }
+  status = "InvalidDraft"
+  variables = [
+    {
+      name = "allowAnonymousBooking"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = false
+      }
+    },
+    {
+      name = "allowResourceBooking"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = true
+      }
+    },
+    {
+      name = "changePrimary"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = false
+      }
+    },
+    {
+      name = "correlationId"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      description = "Specify a default time zone for Lightning Scheduler appointments."
+      name = "DefaultTimeZone"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "disableMultiResource"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = true
+      }
+    },
+    {
+      name = "distanceUnit"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        stringValue = "mi"
+      }
+    },
+    {
+      description = "Specify a comma-separated list of service resource IDs. Depending on the page, these IDs are used to filter work type groups, service territories, or service resources."
+      name = "FilterByResourceIds"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "FilterByWorkTypeGroupIds"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      description = "Specify whether to display ST OH or not"
+      name = "hideStOh"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "IsInbound"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = true
+      }
+    },
+    {
+      name = "isOutboundCommunity"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = false
+      }
+    },
+    {
+      name = "LocationDistance"
+      dataType = "Number"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      scale = 2
+      value = {
+        numberValue = 5
+      }
+    },
+    {
+      name = "LocationLatitude"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "LocationLongitude"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "OptionalAttendees"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "recordId"
+      dataType = "String"
+      isCollection = false
+      isInput = true
+      isOutput = false
+    },
+    {
+      description = "Stores the API name of the scheduling policy you want to associate with the flow."
+      name = "SchedulingPolicyName"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "SelectedLocation"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "selectedTimezone"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "SelectedTriageOption"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "ServiceAppointment"
+      dataType = "SObject"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      objectType = salesforce.ServiceAppointment
+    },
+    {
+      name = "ServiceAppointmentFields"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "ServiceAppointmentId"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = true
+    },
+    {
+      name = "ServiceResourceId"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "ServiceResourceName"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "serviceResources"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "showServiceResource"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = true
+      }
+    },
+    {
+      name = "showTimeZonePicklist"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      value = {
+        booleanValue = false
+      }
+    },
+    {
+      name = "StartDate"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "ValidationErrors"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "WorkTypeGroupId"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+  ]
+}

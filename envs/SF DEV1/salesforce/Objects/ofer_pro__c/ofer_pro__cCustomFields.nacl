@@ -1,0 +1,12 @@
+type salesforce.ofer_pro__c {
+  salesforce.Checkbox check__c {
+    apiName = "ofer_pro__c.check__c"
+    label = "check"
+    defaultValue = false
+    createable = true
+    updateable = true
+    queryable = true
+    externalId = false
+    trackTrending = false
+  }
+}

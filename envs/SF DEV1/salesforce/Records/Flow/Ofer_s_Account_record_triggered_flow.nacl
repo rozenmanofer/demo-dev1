@@ -1,0 +1,35 @@
+salesforce.Flow Ofer_s_Account_record_triggered_flow {
+  fullName = "Ofer_s_Account_record_triggered_flow"
+  apiVersion = 53
+  interviewLabel = "Ofer's Account record triggered flow {!$Flow.CurrentDateTime}"
+  label = "0_Ofer's Account record triggered flow"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  start = {
+    locationX = 50
+    locationY = 0
+    object = salesforce.Account
+    recordTriggerType = "Create"
+    triggerType = "RecordAfterSave"
+  }
+  status = "InvalidDraft"
+}

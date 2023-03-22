@@ -1,0 +1,14 @@
+type salesforce.ofers_object_w_formula_field__c {
+  salesforce.FormulaCheckbox ofer_formula_2__c {
+    apiName = "ofers_object_w_formula_field__c.ofer_formula_2__c"
+    label = "ofer_formula_2"
+    formula = "$User.IsActive"
+    createable = false
+    updateable = false
+    queryable = true
+    externalId = false
+    formulaTreatBlanksAs = "BlankAsZero"
+    trackTrending = false
+    _hidden_value = true
+  }
+}

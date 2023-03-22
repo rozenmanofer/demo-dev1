@@ -1,0 +1,34 @@
+type salesforce.ExperiencePropertyTypeBundle {
+  annotations {
+    serviceid metadataType {
+    }
+    boolean hasMetaFile {
+    }
+    string folderType {
+    }
+    string folderContentType {
+    }
+    string suffix {
+    }
+    string dirName {
+    }
+  }
+  serviceid fullName {
+  }
+  string defaultDesignConfigMCTBody {
+  }
+  string description {
+  }
+  string developerName {
+  }
+  string masterLabel {
+  }
+  string schemaMCTBody {
+  }
+  string internalId {
+    _hidden_value = true
+    localOnly = true
+  }
+  dirName = "experiencePropertyTypeBundles"
+  metadataType = "ExperiencePropertyTypeBundle"
+}

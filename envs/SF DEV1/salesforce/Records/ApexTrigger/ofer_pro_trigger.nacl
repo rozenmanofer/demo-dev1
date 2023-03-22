@@ -1,0 +1,22 @@
+salesforce.ApexTrigger ofer_pro_trigger {
+  apiVersion = 55
+  status = "Active"
+  fullName = "ofer_pro_trigger"
+  content = file("salesforce/Records/ApexTrigger/ofer_pro_trigger.trigger")
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  _generated_dependencies = [
+    {
+      reference = salesforce.ofer_pro__c
+    },
+  ]
+}

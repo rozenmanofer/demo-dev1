@@ -1,0 +1,61 @@
+type salesforce.ofers_New_Custom_Metadata_Type__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    hidden_string keyPrefix {
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    string pluralLabel {
+    }
+  }
+  apiName = "ofers_New_Custom_Metadata_Type__mdt"
+  metadataType = "CustomMetadata"
+  label = "ofers New Custom Metadata Type"
+  
+  
+  pluralLabel = "with_s"
+}

@@ -1,0 +1,4 @@
+salesforce.IncidentMgmtSettings {
+  fullName = "IncidentMgmt"
+  enableIncidentMgmt = "false"
+}

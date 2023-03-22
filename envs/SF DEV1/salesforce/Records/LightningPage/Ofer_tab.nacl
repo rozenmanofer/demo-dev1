@@ -1,0 +1,91 @@
+salesforce.LightningPage Ofer_tab {
+  fullName = "Ofer_tab"
+  flexiPageRegions = [
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "context"
+                value = "BOOKMARKS"
+              },
+            ]
+            componentName = "forceChatter:exposedFeed"
+            identifier = "forceChatter_exposedFeed"
+          }
+        },
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "title"
+              },
+            ]
+            componentName = "runtime_mobilesapp:launchPadTileList"
+            identifier = "runtime_mobilesapp_launchPadTileList"
+          }
+        },
+      ]
+      name = "region1"
+      type = "Region"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "entityNames"
+                valueList = {
+                  valueListItems = {
+                    value = "ApiAnomalyEventStore"
+                  }
+                }
+              },
+              {
+                name = "maxRecords"
+                value = "3"
+              },
+            ]
+            componentName = "flexipage:recentItems"
+            identifier = "flexipage_recentItems"
+          }
+        },
+      ]
+      name = "region2"
+      type = "Region"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "cacheAge"
+                value = "1440"
+              },
+              {
+                name = "reportName"
+                value = "flow_screen_prebuilt_report"
+              },
+              {
+                name = "showRefreshButton"
+                value = "true"
+              },
+            ]
+            componentName = "flexipage:reportChart"
+            identifier = "flexipage_reportChart"
+          }
+        },
+      ]
+      name = "region3"
+      type = "Region"
+    },
+  ]
+  masterLabel = "Ofer' tab"
+  template = {
+    name = "flexipage:appHomeTemplateHeaderTwoColumnsLeftSidebar"
+  }
+  type = "AppPage"
+}

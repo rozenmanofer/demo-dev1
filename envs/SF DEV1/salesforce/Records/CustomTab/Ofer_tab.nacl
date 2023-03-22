@@ -1,0 +1,23 @@
+salesforce.CustomTab Ofer_tab {
+  fullName = "Ofer_tab"
+  description = "Created by Lightning App Builder"
+  flexiPage = "Ofer_tab"
+  label = "Ofer' tab"
+  motif = "Custom17: Sack"
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  _generated_dependencies = [
+    {
+      reference = salesforce.LightningPage.instance.Ofer_tab
+    },
+  ]
+}

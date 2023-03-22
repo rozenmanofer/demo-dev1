@@ -1,0 +1,136 @@
+salesforce.Flow process_ofers {
+  fullName = "process_ofers"
+  actionCalls = {
+    processMetadataValues = [
+      {
+        name = "ActionCallType"
+        value = {
+          stringValue = "flow"
+        }
+      },
+      {
+        name = "flowSelection"
+        value = {
+          stringValue = "Recurrence Schedule Flow"
+        }
+      },
+    ]
+    name = "myRule_1_A1"
+    label = "some_flow"
+    locationX = 100
+    locationY = 200
+    actionName = "runtime_industries_recurrence__Schdlr"
+    actionType = "flow"
+    flowTransactionModel = "CurrentTransaction"
+  }
+  apiVersion = 55
+  decisions = [
+    {
+      processMetadataValues = {
+        name = "index"
+        value = {
+          numberValue = 0
+        }
+      }
+      name = "myDecision"
+      label = "myDecision"
+      locationX = 50
+      locationY = 0
+      defaultConnectorLabel = "default"
+      rules = [
+        {
+          name = "myRule_1"
+          conditionLogic = "and"
+          conditions = [
+            {
+              processMetadataValues = [
+                {
+                  name = "inputDataType"
+                  value = {
+                    stringValue = "String"
+                  }
+                },
+                {
+                  name = "leftHandSideType"
+                  value = {
+                    stringValue = "String"
+                  }
+                },
+                {
+                  name = "operatorDataType"
+                  value = {
+                    stringValue = "String"
+                  }
+                },
+                {
+                  name = "rightHandSideType"
+                  value = {
+                    stringValue = "String"
+                  }
+                },
+              ]
+              leftValueReference = "myVariable_current.City"
+              operator = "EqualTo"
+              rightValue = {
+                stringValue = "Tel-Aviv"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "myRule_1_A1"
+          }
+          label = "criteria"
+        },
+      ]
+    },
+  ]
+  interviewLabel = "process_ofers-1_InterviewLabel"
+  label = "process ofers"
+  processMetadataValues = [
+    {
+      name = "ObjectType"
+      value = {
+        stringValue = "Lead"
+      }
+    },
+    {
+      name = "ObjectVariable"
+      value = {
+        elementReference = "myVariable_current"
+      }
+    },
+    {
+      name = "OldObjectVariable"
+      value = {
+        elementReference = "myVariable_old"
+      }
+    },
+    {
+      name = "TriggerType"
+      value = {
+        stringValue = "onCreateOnly"
+      }
+    },
+  ]
+  processType = "Workflow"
+  startElementReference = "myDecision"
+  status = "Active"
+  variables = [
+    {
+      name = "myVariable_current"
+      dataType = "SObject"
+      isCollection = false
+      isInput = true
+      isOutput = true
+      objectType = salesforce.Lead
+    },
+    {
+      name = "myVariable_old"
+      dataType = "SObject"
+      isCollection = false
+      isInput = true
+      isOutput = false
+      objectType = salesforce.Lead
+    },
+  ]
+}

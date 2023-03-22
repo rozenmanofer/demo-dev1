@@ -1,0 +1,25 @@
+salesforce.ApexClass AccountCreation {
+  apiVersion = 52
+  status = "Active"
+  fullName = "AccountCreation"
+  content = file("salesforce/Records/ApexClass/AccountCreation.cls")
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account
+    },
+    {
+      reference = salesforce.Ofers_Object__c
+    },
+  ]
+}

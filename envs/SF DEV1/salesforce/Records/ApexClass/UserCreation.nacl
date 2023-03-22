@@ -1,0 +1,22 @@
+salesforce.ApexClass UserCreation {
+  apiVersion = 53
+  status = "Active"
+  fullName = "UserCreation"
+  content = file("salesforce/Records/ApexClass/UserCreation.cls")
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  _generated_dependencies = [
+    {
+      reference = salesforce.User
+    },
+  ]
+}

@@ -1,0 +1,206 @@
+type salesforce.PromotionQualifier {
+  salesforce.Currency MinimumAmount {
+    apiName = "PromotionQualifier.MinimumAmount"
+    trackHistory = false
+    label = "Minimum Amount"
+    createable = true
+    updateable = true
+    scale = 2
+    precision = 18
+    queryable = true
+  }
+  salesforce.Number MinimumQuantity {
+    apiName = "PromotionQualifier.MinimumQuantity"
+    trackHistory = false
+    label = "Minimum Quantity"
+    precision = 18
+    scale = 4
+    createable = true
+    updateable = true
+    unique = false
+    queryable = true
+  }
+  salesforce.AutoNumber Name {
+    apiName = "PromotionQualifier.Name"
+    trackHistory = false
+    label = "Promotion Qualifier Name"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.MasterDetail PromotionId {
+    apiName = "PromotionQualifier.PromotionId"
+    trackHistory = false
+    relationshipName = "Promotion"
+    referenceTo = [
+      salesforce.Promotion,
+    ]
+    _required = true
+    label = "Promotion ID"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.Lookup QualifierId {
+    apiName = "PromotionQualifier.QualifierId"
+    trackHistory = false
+    relationshipName = "Qualifier"
+    referenceTo = [
+      salesforce.Product2,
+    ]
+    label = "Qualifier ID"
+    createable = true
+    updateable = true
+    queryable = true
+  }
+  salesforce.Text QualifierProductCategoryName {
+    apiName = "PromotionQualifier.QualifierProductCategoryName"
+    length = 200
+    label = "Qualifier Category Name"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text QualifierProductName {
+    apiName = "PromotionQualifier.QualifierProductName"
+    length = 255
+    label = "Qualifier Product Name"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text QualifierProductSku {
+    apiName = "PromotionQualifier.QualifierProductSku"
+    length = 180
+    label = "Qualifier Product SKU"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Picklist QualifierType {
+    apiName = "PromotionQualifier.QualifierType"
+    trackHistory = false
+    valueSet = [
+      {
+        fullName = "Product"
+        isActive = true
+        label = "Product"
+        default = false
+      },
+      {
+        fullName = "ProductCategory"
+        isActive = true
+        label = "Product Category"
+        default = false
+      },
+      {
+        fullName = "TransactionTotal"
+        isActive = true
+        label = "Transaction Total"
+        default = false
+      },
+    ]
+    restricted = true
+    _required = true
+    label = "Qualifier Type"
+    createable = true
+    updateable = true
+    queryable = true
+    _restriction = {
+      enforce_value = true
+      values = [
+        "Product",
+        "ProductCategory",
+        "TransactionTotal",
+      ]
+    }
+  }
+  serviceid Id {
+    apiName = "PromotionQualifier.Id"
+    label = "Promotion Qualifier ID"
+    queryable = true
+    _hidden_value = true
+    updateable = false
+    createable = false
+  }
+  salesforce.Checkbox IsDeleted {
+    apiName = "PromotionQualifier.IsDeleted"
+    defaultValue = false
+    label = "Deleted"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime CreatedDate {
+    apiName = "PromotionQualifier.CreatedDate"
+    label = "Created Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup CreatedById {
+    apiName = "PromotionQualifier.CreatedById"
+    relationshipName = "CreatedBy"
+    referenceTo = [
+      salesforce.User,
+    ]
+    label = "Created By ID"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime LastModifiedDate {
+    apiName = "PromotionQualifier.LastModifiedDate"
+    label = "Last Modified Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup LastModifiedById {
+    apiName = "PromotionQualifier.LastModifiedById"
+    relationshipName = "LastModifiedBy"
+    referenceTo = [
+      salesforce.User,
+    ]
+    label = "Last Modified By ID"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime SystemModstamp {
+    apiName = "PromotionQualifier.SystemModstamp"
+    label = "System Modstamp"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup PromotionTierId {
+    apiName = "PromotionQualifier.PromotionTierId"
+    trackHistory = false
+    
+    relationshipName = "PromotionTier"
+    referenceTo = [
+      salesforce.PromotionTier,
+    ]
+    label = "Promotion Tier ID"
+    createable = true
+    updateable = true
+    queryable = true
+  }
+}

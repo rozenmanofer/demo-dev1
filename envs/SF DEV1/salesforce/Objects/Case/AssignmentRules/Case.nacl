@@ -1,0 +1,132 @@
+salesforce.AssignmentRules Case {
+  assignmentRule = [
+    {
+      fullName = "RSM"
+      active = true
+      ruleEntry = [
+        {
+          assignedTo = "ofer.rozenman+dev1@salto.io"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = salesforce.Case.field.Priority
+              operation = "lessThan"
+              value = "3"
+            },
+            {
+              field = salesforce.Case.field.CreatedById
+              operation = "equals"
+              value = "ofer D"
+            },
+          ]
+          template = "unfiled$public/SalesNewCustomerEmail"
+        },
+      ]
+    },
+    {
+      fullName = "Standard"
+      active = false
+      ruleEntry = [
+        {
+          assignedTo = "ofer.rozenman+dev1@salto.io"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "equals"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = salesforce.Account.field.SLA__c
+              operation = "equals"
+              value = "Gold,Platinum"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+          ]
+        },
+        {
+          assignedTo = "ofer.rozenman+dev1@salto.io"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "equals"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = salesforce.Account.field.SLA__c
+              operation = "equals"
+              value = "Silver,Bronze"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+          ]
+        },
+        {
+          assignedTo = "ofer.rozenman+dev1@salto.io"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "notEqual"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = salesforce.Account.field.SLA__c
+              operation = "equals"
+              value = "Gold,Platinum"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+          ]
+        },
+        {
+          assignedTo = "ofer.rozenman+dev1@salto.io"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "notEqual"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = salesforce.Account.field.SLA__c
+              operation = "equals"
+              value = "Silver,Bronze"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+          ]
+        },
+        {
+          assignedTo = "ofer.rozenman+dev1@salto.io"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Partner"
+            },
+          ]
+        },
+      ]
+    },
+  ]
+  fullName = "Case"
+  _parent = [
+    salesforce.Case,
+  ]
+}

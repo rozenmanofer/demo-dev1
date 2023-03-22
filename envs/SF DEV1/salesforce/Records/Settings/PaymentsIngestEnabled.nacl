@@ -1,0 +1,4 @@
+salesforce.PaymentsIngestEnabledSettings {
+  fullName = "PaymentsIngestEnabled"
+  paymentsIngestEnabled = "false"
+}

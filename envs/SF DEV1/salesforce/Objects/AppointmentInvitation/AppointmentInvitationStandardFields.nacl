@@ -1,0 +1,196 @@
+type salesforce.AppointmentInvitation {
+  serviceid Id {
+    apiName = "AppointmentInvitation.Id"
+    label = "Appointment Invitation ID"
+    queryable = true
+    _hidden_value = true
+    updateable = false
+    createable = false
+  }
+  salesforce.Lookup OwnerId {
+    apiName = "AppointmentInvitation.OwnerId"
+    label = "Owner ID"
+    referenceTo = [
+      salesforce.Group,
+      salesforce.User,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "Owner"
+    queryable = true
+    _hidden_value = true
+    trackHistory = false
+  }
+  salesforce.Checkbox IsDeleted {
+    apiName = "AppointmentInvitation.IsDeleted"
+    label = "Deleted"
+    defaultValue = false
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.AutoNumber InvitationNumber {
+    apiName = "AppointmentInvitation.InvitationNumber"
+    label = "Invitation Number"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime CreatedDate {
+    apiName = "AppointmentInvitation.CreatedDate"
+    label = "Created Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup CreatedById {
+    apiName = "AppointmentInvitation.CreatedById"
+    label = "Created By ID"
+    referenceTo = [
+      salesforce.User,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "CreatedBy"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime LastModifiedDate {
+    apiName = "AppointmentInvitation.LastModifiedDate"
+    label = "Last Modified Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup LastModifiedById {
+    apiName = "AppointmentInvitation.LastModifiedById"
+    label = "Last Modified By ID"
+    referenceTo = [
+      salesforce.User,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "LastModifiedBy"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime SystemModstamp {
+    apiName = "AppointmentInvitation.SystemModstamp"
+    label = "System Modstamp"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text InvitationIdentifier {
+    apiName = "AppointmentInvitation.InvitationIdentifier"
+    label = "Invitation Identifier"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 36
+    queryable = true
+    _hidden_value = true
+    trackHistory = false
+  }
+  salesforce.Lookup ServiceTerritoryId {
+    apiName = "AppointmentInvitation.ServiceTerritoryId"
+    label = "Territory ID"
+    referenceTo = [
+      salesforce.ServiceTerritory,
+    ]
+    createable = true
+    updateable = false
+    relationshipName = "ServiceTerritory"
+    queryable = true
+    trackHistory = false
+  }
+  salesforce.Date BookingStartDate {
+    apiName = "AppointmentInvitation.BookingStartDate"
+    label = "Booking Start Date"
+    createable = true
+    updateable = true
+    queryable = true
+    trackHistory = false
+  }
+  salesforce.Date BookingEndDate {
+    apiName = "AppointmentInvitation.BookingEndDate"
+    label = "Booking End Date"
+    createable = true
+    updateable = true
+    queryable = true
+    trackHistory = false
+  }
+  salesforce.Date UrlExpiryDate {
+    apiName = "AppointmentInvitation.UrlExpiryDate"
+    label = "URL Expiration Date"
+    createable = true
+    updateable = true
+    queryable = true
+    trackHistory = false
+  }
+  salesforce.Checkbox IsActive {
+    apiName = "AppointmentInvitation.IsActive"
+    label = "Active"
+    defaultValue = false
+    createable = true
+    updateable = true
+    queryable = true
+    trackHistory = false
+  }
+  salesforce.Url InvitationUrl {
+    apiName = "AppointmentInvitation.InvitationUrl"
+    label = "Invitation URL"
+    createable = true
+    updateable = false
+    queryable = true
+    trackHistory = false
+  }
+  salesforce.Lookup AppointmentTopicId {
+    apiName = "AppointmentInvitation.AppointmentTopicId"
+    label = "Appointment Topic ID"
+    referenceTo = [
+      salesforce.WorkType,
+      salesforce.WorkTypeGroup,
+    ]
+    createable = true
+    updateable = false
+    relationshipName = "AppointmentTopic"
+    queryable = true
+    trackHistory = false
+  }
+  salesforce.Text AppointmentTopicType {
+    apiName = "AppointmentInvitation.AppointmentTopicType"
+    label = "Appointment Topic Type"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 50
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Picklist AppointmentType {
+    apiName = "AppointmentInvitation.AppointmentType"
+    trackHistory = false
+    _hidden_value = true
+  }
+  salesforce.Lookup EngagementChannelTypeId {
+    apiName = "AppointmentInvitation.EngagementChannelTypeId"
+    trackHistory = false
+    
+    relationshipName = "EngagementChannelType"
+    referenceTo = [
+      salesforce.EngagementChannelType,
+    ]
+    label = "Engagement Channel Type ID"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+}

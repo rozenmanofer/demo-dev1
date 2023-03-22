@@ -1,0 +1,314 @@
+type salesforce.PaymentMethod {
+  serviceid Id {
+    apiName = "PaymentMethod.Id"
+    label = "Payment Method ID"
+    queryable = true
+    _hidden_value = true
+    updateable = false
+    createable = false
+  }
+  salesforce.Text ImplementorType {
+    apiName = "PaymentMethod.ImplementorType"
+    label = "Implementor Type"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup AccountId {
+    apiName = "PaymentMethod.AccountId"
+    label = "Account ID"
+    referenceTo = [
+      salesforce.Account,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "Account"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text NickName {
+    apiName = "PaymentMethod.NickName"
+    label = "Nickname"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text CompanyName {
+    apiName = "PaymentMethod.CompanyName"
+    label = "Company Name"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Picklist Status {
+    apiName = "PaymentMethod.Status"
+    label = "Status"
+    _required = true
+    valueSet = [
+      {
+        fullName = "Active"
+        default = false
+        label = "Active"
+        isActive = true
+      },
+      {
+        fullName = "InActive"
+        default = false
+        label = "InActive"
+        isActive = true
+      },
+      {
+        fullName = "Canceled"
+        default = false
+        label = "Canceled"
+        isActive = true
+      },
+    ]
+    restricted = true
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.LongTextArea Comments {
+    apiName = "PaymentMethod.Comments"
+    label = "Comments"
+    createable = false
+    updateable = false
+    length = 32000
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Checkbox IsAutoPayEnabled {
+    apiName = "PaymentMethod.IsAutoPayEnabled"
+    label = "Auto Pay"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Address PaymentMethodAddress {
+    apiName = "PaymentMethod.PaymentMethodAddress"
+    label = "Payment Method Address"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup CreatedById {
+    apiName = "PaymentMethod.CreatedById"
+    label = "User ID"
+    referenceTo = [
+      salesforce.User,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "CreatedBy"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime CreatedDate {
+    apiName = "PaymentMethod.CreatedDate"
+    label = "__MISSING LABEL__ PropertyFile - val CreatedDate not found in section udd_PaymentMethod"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup LastModifiedById {
+    apiName = "PaymentMethod.LastModifiedById"
+    label = "User ID"
+    referenceTo = [
+      salesforce.User,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "LastModifiedBy"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime LastModifiedDate {
+    apiName = "PaymentMethod.LastModifiedDate"
+    label = "__MISSING LABEL__ PropertyFile - val LastModifiedDate not found in section udd_PaymentMethod"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime SystemModstamp {
+    apiName = "PaymentMethod.SystemModstamp"
+    label = "__MISSING LABEL__ PropertyFile - val SystemModstamp not found in section udd_PaymentMethod"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Checkbox IsDeleted {
+    apiName = "PaymentMethod.IsDeleted"
+    label = "__MISSING LABEL__ PropertyFile - val IsDeleted not found in section udd_PaymentMethod"
+    defaultValue = false
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text Name {
+    apiName = "PaymentMethod.Name"
+    label = "__MISSING LABEL__ PropertyFile - val Name not found in section udd_PaymentMethod"
+    _required = true
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text PaymentMethodDetails {
+    apiName = "PaymentMethod.PaymentMethodDetails"
+    length = 255
+    label = "Payment Method Details"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text PaymentMethodSubType {
+    apiName = "PaymentMethod.PaymentMethodSubType"
+    length = 255
+    label = "Payment Method SubType"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Picklist PaymentMethodType {
+    apiName = "PaymentMethod.PaymentMethodType"
+    valueSet = [
+      {
+        fullName = "Visa"
+        isActive = true
+        label = "Visa"
+        default = false
+      },
+      {
+        fullName = "MasterCard"
+        isActive = true
+        label = "Master Card"
+        default = false
+      },
+      {
+        fullName = "AmericanExpress"
+        isActive = true
+        label = "American Express"
+        default = false
+      },
+      {
+        fullName = "Jcb"
+        isActive = true
+        label = "Jcb"
+        default = false
+      },
+      {
+        fullName = "DinersClub"
+        isActive = true
+        label = "Diners Club"
+        default = false
+      },
+      {
+        fullName = "Maestro"
+        isActive = true
+        label = "Maestro"
+        default = false
+      },
+      {
+        fullName = "ApplePay"
+        isActive = true
+        label = "Apple Pay"
+        default = false
+      },
+      {
+        fullName = "GooglePay"
+        isActive = true
+        label = "Google Pay"
+        default = false
+      },
+      {
+        fullName = "SepaDebit"
+        isActive = true
+        label = "Sepa Debit"
+        default = false
+      },
+      {
+        fullName = "iDeal"
+        isActive = true
+        label = "iDeal"
+        default = false
+      },
+      {
+        fullName = "Klarna"
+        isActive = true
+        label = "Klarna"
+        default = false
+      },
+      {
+        fullName = "BanContact"
+        isActive = true
+        label = "Bancontact"
+        default = false
+      },
+      {
+        fullName = "AfterpayClearpay"
+        isActive = true
+        label = "Afterpay / Clearpay"
+        default = false
+      },
+      {
+        fullName = "EPS"
+        isActive = true
+        label = "Eps"
+        default = false
+      },
+      {
+        fullName = "PayPal"
+        isActive = true
+        label = "Paypal"
+        default = false
+      },
+      {
+        fullName = "Venmo"
+        isActive = true
+        label = "Venmo"
+        default = false
+      },
+      {
+        fullName = "Other"
+        isActive = true
+        label = "Other"
+        default = false
+      },
+    ]
+    restricted = true
+    label = "Payment Method Type"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+}

@@ -1,0 +1,19 @@
+salesforce.CompactLayout Contact_kjhasd {
+  fullName = "Contact.kjhasd"
+  fields = [
+    "AccountId",
+    "Birthdate",
+    "OwnerId",
+    "Department",
+    "CreatedById",
+    "HasOptedOutOfEmail",
+    "OtherAddress",
+    "Title",
+    "LastCUUpdateDate",
+    "HomePhone",
+  ]
+  label = "kjhasd"
+  _parent = [
+    salesforce.Contact,
+  ]
+}

@@ -1,0 +1,116 @@
+salesforce.LightningPage record_page_ofer {
+  fullName = "record_page_ofer"
+  flexiPageRegions = [
+    {
+      name = "header"
+      type = "Region"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "flowArguments"
+                value = "[]"
+              },
+              {
+                name = "flowLayout"
+                value = "oneColumn"
+              },
+              {
+                name = "flowName"
+                value = "setup_service_experience__Reset_Pwd"
+              },
+            ]
+            componentName = "flowruntime:interview"
+            identifier = "flowruntime_interview"
+          }
+        },
+      ]
+      name = "Facet-8fdcfeb0-0908-470a-85e8-ae33b6c9ec23"
+      type = "Facet"
+    },
+    {
+      name = "Facet-6383e691-3d6c-487d-8f13-5540a9aea3e4"
+      type = "Facet"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "body"
+                value = "Facet-8fdcfeb0-0908-470a-85e8-ae33b6c9ec23"
+              },
+              {
+                name = "label"
+                value = "Standard.Tab.relatedLists"
+              },
+              {
+                name = "name"
+                value = "accordionSection1"
+              },
+            ]
+            componentName = "flexipage:accordionSection"
+            identifier = "flexipage_accordionSection"
+          }
+        },
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "body"
+                value = "Facet-6383e691-3d6c-487d-8f13-5540a9aea3e4"
+              },
+              {
+                name = "label"
+                value = "Standard.Tab.detail"
+              },
+              {
+                name = "name"
+                value = "accordionSection2"
+              },
+            ]
+            componentName = "flexipage:accordionSection"
+            identifier = "flexipage_accordionSection2"
+          }
+        },
+      ]
+      name = "Facet-539e9bb6-46e2-4fce-ac46-c2949ab17c6a"
+      type = "Facet"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "accordionSections"
+                value = "Facet-539e9bb6-46e2-4fce-ac46-c2949ab17c6a"
+              },
+            ]
+            componentName = "flexipage:accordion"
+            identifier = "flexipage_accordion"
+          }
+        },
+      ]
+      name = "main"
+      type = "Region"
+    },
+  ]
+  masterLabel = "record_page_ofer"
+  sobjectType = "Ofers_Object__c"
+  template = {
+    name = "flexipage:recordHomeSimpleViewTemplate"
+    properties = {
+      name = "enablePageActionConfig"
+      value = "false"
+    }
+  }
+  type = "RecordPage"
+  _parent = [
+    salesforce.Ofers_Object__c,
+  ]
+}

@@ -1,0 +1,20 @@
+type salesforce.ofers_New_Custom_Metadata_Type__mdt {
+  
+  
+  
+  
+  
+  
+  serviceid fullName {
+  }
+  string description {
+  }
+  string label {
+  }
+  boolean protected {
+  }
+  string internalId {
+    _hidden_value = true
+    localOnly = true
+  }
+}

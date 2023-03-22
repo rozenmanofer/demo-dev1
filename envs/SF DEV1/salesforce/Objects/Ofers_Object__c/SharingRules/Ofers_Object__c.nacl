@@ -1,0 +1,21 @@
+salesforce.SharingRules Ofers_Object__c {
+  fullName = "Ofers_Object__c"
+  _parent = [
+    salesforce.Ofers_Object__c,
+  ]
+  sharingOwnerRules = [
+    {
+      fullName = "we_dont_share"
+      accessLevel = "Edit"
+      label = "we dont share"
+      sharedTo = {
+        allInternalUsers = ""
+      }
+      sharedFrom = {
+        role = [
+          salesforce.Role.instance.CEO,
+        ]
+      }
+    },
+  ]
+}

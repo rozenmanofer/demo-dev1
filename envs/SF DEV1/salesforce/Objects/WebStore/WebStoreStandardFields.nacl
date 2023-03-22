@@ -1,0 +1,206 @@
+type salesforce.WebStore {
+  salesforce.Unknown DefaultLanguage {
+    apiName = "WebStore.DefaultLanguage"
+    _hidden_value = true
+  }
+  salesforce.Unknown Description {
+    apiName = "WebStore.Description"
+    _hidden_value = true
+  }
+  salesforce.LongTextArea ExternalReference {
+    apiName = "WebStore.ExternalReference"
+    length = 32000
+    label = "External Reference ID"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Unknown MaxValuesPerFacet {
+    apiName = "WebStore.MaxValuesPerFacet"
+    _hidden_value = true
+  }
+  salesforce.Text Name {
+    apiName = "WebStore.Name"
+    length = 255
+    _required = true
+    label = "Store Name"
+    createable = true
+    updateable = true
+    unique = false
+    caseSensitive = false
+    queryable = true
+  }
+  salesforce.Picklist OrderActivationStatus {
+    apiName = "WebStore.OrderActivationStatus"
+    _hidden_value = true
+  }
+  salesforce.Unknown OrderLifeCycleType {
+    apiName = "WebStore.OrderLifeCycleType"
+    _hidden_value = true
+  }
+  salesforce.Unknown PaginationSize {
+    apiName = "WebStore.PaginationSize"
+    _hidden_value = true
+  }
+  salesforce.Unknown PricingStrategy {
+    apiName = "WebStore.PricingStrategy"
+    _hidden_value = true
+  }
+  salesforce.Unknown ProductGrouping {
+    apiName = "WebStore.ProductGrouping"
+    _hidden_value = true
+  }
+  salesforce.Lookup SortByPricebookId {
+    apiName = "WebStore.SortByPricebookId"
+    _hidden_value = true
+  }
+  salesforce.Lookup StrikethroughPricebookId {
+    apiName = "WebStore.StrikethroughPricebookId"
+    _hidden_value = true
+  }
+  salesforce.Unknown SupportedLanguages {
+    apiName = "WebStore.SupportedLanguages"
+    _hidden_value = true
+  }
+  serviceid Id {
+    apiName = "WebStore.Id"
+    label = "Store ID"
+    queryable = true
+    _hidden_value = true
+    updateable = false
+    createable = false
+  }
+  salesforce.Lookup OwnerId {
+    apiName = "WebStore.OwnerId"
+    relationshipName = "Owner"
+    referenceTo = [
+      salesforce.Group,
+      salesforce.User,
+    ]
+    label = "Owner ID"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Checkbox IsDeleted {
+    apiName = "WebStore.IsDeleted"
+    defaultValue = false
+    label = "Deleted"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime CreatedDate {
+    apiName = "WebStore.CreatedDate"
+    label = "Created Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup CreatedById {
+    apiName = "WebStore.CreatedById"
+    relationshipName = "CreatedBy"
+    referenceTo = [
+      salesforce.User,
+    ]
+    label = "Created By ID"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime LastModifiedDate {
+    apiName = "WebStore.LastModifiedDate"
+    label = "Last Modified Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup LastModifiedById {
+    apiName = "WebStore.LastModifiedById"
+    relationshipName = "LastModifiedBy"
+    referenceTo = [
+      salesforce.User,
+    ]
+    label = "Last Modified By ID"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime SystemModstamp {
+    apiName = "WebStore.SystemModstamp"
+    label = "System Modstamp"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Picklist Type {
+    apiName = "WebStore.Type"
+    valueSet = [
+      {
+        fullName = "B2B"
+        isActive = true
+        label = "B2B"
+        default = true
+      },
+      {
+        fullName = "B2C"
+        isActive = true
+        label = "B2C"
+        default = false
+      },
+      {
+        fullName = "B2CE"
+        isActive = true
+        label = "B2C Enterprise"
+        default = false
+      },
+    ]
+    restricted = true
+    _required = true
+    label = "Type"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.Checkbox OptionsGuestBrowsingEnabled {
+    apiName = "WebStore.OptionsGuestBrowsingEnabled"
+    label = "Guest Browsing Enabled"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Picklist DefaultTaxLocaleType {
+    apiName = "WebStore.DefaultTaxLocaleType"
+    valueSet = [
+      {
+        fullName = "Net"
+        isActive = true
+        label = "Net"
+        default = false
+      },
+      {
+        fullName = "Gross"
+        isActive = true
+        label = "Gross"
+        default = false
+      },
+    ]
+    restricted = true
+    _required = true
+    label = "Tax Type"
+    inlineHelpText = "You must choose Net or Gross. Choose Net if the product price doesn't include tax. Choose Gross if the product price includes tax."
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+}

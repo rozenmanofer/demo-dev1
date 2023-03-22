@@ -1,0 +1,21 @@
+salesforce.WorkflowRule Ofers_Object__c_validate_field@uuuvu {
+  fullName = "Ofers_Object__c.validate_field"
+  actions = [
+    {
+      name = salesforce.WorkflowAlert.instance.Ofers_Object__c_Ofer_s_email_workflow@uuuvuuu
+      type = "Alert"
+    },
+  ]
+  active = false
+  criteriaItems = [
+    {
+      field = salesforce.Ofers_Object__c.field.CreatedById
+      operation = "equals"
+      value = "Ofer Rozenman"
+    },
+  ]
+  triggerType = "onCreateOrTriggeringUpdate"
+  _parent = [
+    salesforce.Ofers_Object__c,
+  ]
+}

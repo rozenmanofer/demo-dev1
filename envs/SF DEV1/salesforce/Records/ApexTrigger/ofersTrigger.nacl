@@ -1,0 +1,22 @@
+salesforce.ApexTrigger ofersTrigger {
+  apiVersion = 55
+  status = "Active"
+  fullName = "ofersTrigger"
+  content = file("salesforce/Records/ApexTrigger/ofersTrigger.trigger")
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  _generated_dependencies = [
+    {
+      reference = salesforce.Ofers_Object__c
+    },
+  ]
+}

@@ -1,0 +1,143 @@
+type salesforce.LocationGroupAssignment {
+  serviceid Id {
+    apiName = "LocationGroupAssignment.Id"
+    label = "Location Group Assignment ID"
+    queryable = true
+    _hidden_value = true
+    updateable = false
+    createable = false
+  }
+  salesforce.Checkbox IsDeleted {
+    apiName = "LocationGroupAssignment.IsDeleted"
+    label = "Deleted"
+    defaultValue = false
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.AutoNumber LocationGroupAssignment {
+    apiName = "LocationGroupAssignment.LocationGroupAssignment"
+    label = "Location Group Assignment Name"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime CreatedDate {
+    apiName = "LocationGroupAssignment.CreatedDate"
+    label = "Created Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup CreatedById {
+    apiName = "LocationGroupAssignment.CreatedById"
+    label = "Created By ID"
+    referenceTo = [
+      salesforce.User,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "CreatedBy"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime LastModifiedDate {
+    apiName = "LocationGroupAssignment.LastModifiedDate"
+    label = "Last Modified Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup LastModifiedById {
+    apiName = "LocationGroupAssignment.LastModifiedById"
+    label = "Last Modified By ID"
+    referenceTo = [
+      salesforce.User,
+    ]
+    createable = false
+    updateable = false
+    relationshipName = "LastModifiedBy"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime SystemModstamp {
+    apiName = "LocationGroupAssignment.SystemModstamp"
+    label = "System Modstamp"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.MasterDetail LocationId {
+    apiName = "LocationGroupAssignment.LocationId"
+    relationshipName = "Location"
+    referenceTo = [
+      salesforce.Location,
+    ]
+    _required = true
+    label = "Location ID"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.MasterDetail LocationGroupId {
+    apiName = "LocationGroupAssignment.LocationGroupId"
+    relationshipName = "LocationGroup"
+    referenceTo = [
+      salesforce.LocationGroup,
+    ]
+    _required = true
+    label = "Location Group ID"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.Text LocationExternalReference {
+    apiName = "LocationGroupAssignment.LocationExternalReference"
+    label = "External Reference"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text LocationGroupExternalReference {
+    apiName = "LocationGroupAssignment.LocationGroupExternalReference"
+    label = "External Reference"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text LocationName {
+    apiName = "LocationGroupAssignment.LocationName"
+    label = "Location Name"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text LocationGroupName {
+    apiName = "LocationGroupAssignment.LocationGroupName"
+    label = "Location Group Number"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    length = 255
+    queryable = true
+    _hidden_value = true
+  }
+}

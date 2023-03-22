@@ -1,0 +1,17 @@
+type salesforce.ofers_TV_shows__c {
+  salesforce.FormulaCurrency ofersformula__c {
+    apiName = "ofers_TV_shows__c.ofersformula__c"
+    label = "ofers_formula"
+    formula = "$Organization.Latitude"
+    createable = false
+    updateable = false
+    scale = 2
+    precision = 18
+    queryable = true
+    externalId = false
+    formulaTreatBlanksAs = "BlankAsZero"
+    trackHistory = false
+    trackTrending = false
+    _hidden_value = true
+  }
+}
